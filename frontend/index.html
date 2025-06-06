@@ -1,1 +1,64 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACCIOMAI - AI Search</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 50px; text-align: center; }
+    #chatbox {
+      position: fixed; bottom: 20px; right: 20px;
+      width: 300px; height: 400px; background: #f9f9f9;
+      border: 1px solid #ccc; border-radius: 10px;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    #chatlog { flex: 1; padding: 10px; overflow-y: auto; font-size: 14px; }
+    #chatinput { display: flex; }
+    #chatinput input { flex: 1; padding: 10px; border: none; }
+    #chatinput button { padding: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Find products and B2B insights with AI</h2>
+  <input type="text" id="queryBox" placeholder="Describe your needs..." style="width: 60%; padding: 10px;" />
+  <button onclick="searchAI()" style="padding: 10px;">🔍 Search</button>
+  <div id="result" style="margin-top: 30px;"></div>
+
+  <div id="chatbox">
+    <div id="chatlog"></div>
+    <div id="chatinput">
+      <input type="text" id="chatmsg" placeholder="Need help?" />
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    async function searchAI() {
+      const query = document.getElementById("queryBox").value;
+      const response = await fetch("http://localhost:3000/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+      });
+      const data = await response.json();
+      document.getElementById("result").innerText = data.response;
+    }
+
+    function sendChat() {
+      const msg = document.getElementById("chatmsg").value;
+      const chatlog = document.getElementById("chatlog");
+      const userMsg = document.createElement("div");
+      userMsg.textContent = "You: " + msg;
+      chatlog.appendChild(userMsg);
+
+      const botMsg = document.createElement("div");
+      botMsg.textContent = "Support: Thanks! We'll get back to you soon.";
+      chatlog.appendChild(botMsg);
+
+      document.getElementById("chatmsg").value = "";
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+  </script>
+</body>
+</html>
