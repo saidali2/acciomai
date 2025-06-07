@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const verifiedShops = JSON.parse(fs.readFileSync('./backend/verifiedShops.json', 'utf-8'));
+const verifiedShops = JSON.parse(fs.readFileSync('verifiedShops.json', 'utf-8'));
 
 const app = express();
 const PORT = process.env.PORT || 10000;
