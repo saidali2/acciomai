@@ -36,7 +36,7 @@
   <script>
     async function searchAI() {
       const query = document.getElementById("queryBox").value;
-      const response = await fetch("http://localhost:3000/search", {
+      const response = await fetch("https://acciomai.onrender.com/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query })
