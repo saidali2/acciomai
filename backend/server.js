@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fs = require('fs');
+const verifiedShops = JSON.parse(fs.readFileSync('./backend/verifiedShops.json', 'utf-8'));
 
 const app = express();
 const PORT = process.env.PORT || 10000;
@@ -22,8 +24,10 @@ app.post('/search', (req, res) => {
   ];
 
   const results = fakeResults.filter(item =>
-    item.name.toLowerCase().includes(searchQuery)
-  );
+  item.name.toLowerCase().includes(searchQuery) &&
+  verifiedShops.includes(item.source)
+);
+
 
   if (results.length === 0) {
     return res.json({
