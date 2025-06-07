@@ -22,7 +22,7 @@ app.post('/search', (req, res) => {
     { name: 'Smartphone X', price: '$199', source: 'Jumia' },
     { name: 'Shoes Pro', price: '$49', source: 'Kilimall' },
     { name: 'TV Box Pro', price: '$69', source: 'Alibaba' },
-    { name: 'Magic Pillow', price: '$12', source: 'UnknownShop' }
+    { name: 'Magic Pillow', price: '$12', source: 'UnknownShop' },
   ];
 
   const results = fakeResults.filter(item =>
