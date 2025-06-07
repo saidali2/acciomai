@@ -40,6 +40,16 @@ app.post('/search', (req, res) => {
   return res.json({ results });
 });
 
+app.post('/update-shops', (req, res) => {
+  const { shops } = req.body;
+  if (!Array.isArray(shops)) {
+    return res.status(400).json({ message: "Invalid shop list." });
+  }
+  fs.writeFileSync('verifiedShops.json', JSON.stringify(shops, null, 2));
+  return res.json({ message: "Shop list updated!" });
+});
+
+
 app.get('/', (req, res) => {
   res.send('🚀 ACCIOM AI backend is running!');
 });
