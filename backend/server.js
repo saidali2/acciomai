@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/search', (req, res) => {
-  const query = req.body.query.toLowerCase();
+  const query = (req.body?.search || '').toLowerCase();
   let response;
 
   if (query.includes("tv") && query.includes("nairobi")) {
