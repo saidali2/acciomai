@@ -23,10 +23,10 @@ export default function App() {
           <button className="px-6 py-3 bg-red-600 text-white rounded hover:bg-red-700">Start Shopping</button>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <img src={phone} alt="Phone" className="rounded-lg w-32 h-32 object-cover" />
-          <img src={shirt} alt="Shirt" className="rounded-lg w-32 h-32 object-cover" />
-          <img src={shoes} alt="Shoes" className="rounded-lg w-32 h-32 object-cover" />
-          <img src={stool} alt="Stool" className="rounded-lg w-32 h-32 object-cover" />
+          <img src={phone} alt="Phone" className="rounded-lg w-96 h-96 object-cover" />
+          <img src={shirt} alt="Shirt" className="rounded-lg w-96 h-96 object-cover" />
+          <img src={shoes} alt="Shoes" className="rounded-lg w-96 h-96 object-cover" />
+          <img src={stool} alt="Stool" className="rounded-lg w-96 h-96 object-cover" />
         </div>
       </section>
 
