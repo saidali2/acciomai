@@ -20,9 +20,9 @@ export default function App() {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <img src="/img/phone.jpg" className="rounded-xl w-full h-auto object-cover" />
-          <img src="/img/shirt.jpg" className="rounded-xl w-full h-auto object-cover" />
-          <img src="/img/shoes.jpg" className="rounded-xl w-full h-auto object-cover" />
-          <img src="/img/stool.jpg" className="rounded-xl w-full h-auto object-cover" />
+          <img src="/img/shirt.jpeg" className="rounded-xl w-full h-auto object-cover" />
+          <img src="/img/shoes.jpeg" className="rounded-xl w-full h-auto object-cover" />
+          <img src="/img/stool.jpeg" className="rounded-xl w-full h-auto object-cover" />
         </div>
       </section>
 
